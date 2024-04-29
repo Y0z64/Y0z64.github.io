@@ -1,10 +1,9 @@
-import './App.css'
 
 function App() {
 
   return (
     <>
-      <body className="w-screen h-screen  "></body>
+    <div className='w-screen h-screen'></div>
     </>
   );
 }
