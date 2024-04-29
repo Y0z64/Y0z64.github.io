@@ -3,7 +3,9 @@ function App() {
 
   return (
     <>
-    <div className='w-screen h-screen'></div>
+      <div className="h-screen w-screen ">
+
+      </div>
     </>
   );
 }

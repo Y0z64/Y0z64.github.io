@@ -9,12 +9,13 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: "#0a0a0a";
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  scroll-snap-type: y mandatory;
 }
 
 a {
@@ -34,11 +35,20 @@ body {
   min-height: 100vh;
 }
 
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #0a0a0a;
   }
   a:hover {
     color: #747bff;
