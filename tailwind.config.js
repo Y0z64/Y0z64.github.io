@@ -233,8 +233,8 @@ export default {
     },
   },
   fontFamily: {
-    sans: ["Graphik", "sans-serif"],
-    serif: ["Merriweather", "serif"],
+    geist: ['Geist', 'sans-serif'],
+    geistMono: ['GeistMono', 'sans-serif'],
   },
   extend: {
     spacing: {

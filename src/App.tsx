@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <body className="w-screen h-screen"></body>
+      <body className="w-screen h-screen  "></body>
     </>
   );
 }
