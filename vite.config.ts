@@ -10,12 +10,8 @@ export default defineConfig({
       custom: {
         families: [
           {
-            name: "GeistMono",
-            src: "./src/assets/fonts/GeistMono/*.woff2",
-          },
-          {
             name: "Geist",
-            src: "./src/assets/fonts/Geist/*.woff2",
+            src: "./src/assets/fonts/GeistMono/*.woff2",
           },
         ],
       },

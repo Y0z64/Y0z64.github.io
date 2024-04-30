@@ -15,6 +15,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  display: flex;
+  align-items: start;
+
   scroll-snap-type: y mandatory;
 }
 
@@ -52,5 +55,24 @@ body {
   }
   a:hover {
     color: #747bff;
+  }
+}
+
+/* Fonts */
+@layer base {
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url(/src/assets/fonts/Geist/GeistVF.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "GeistMono";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url(/src/assets/fonts/GeistMono/GeistMonoVF.woff2) format("woff2");
   }
 }

@@ -231,10 +231,10 @@ export default {
         1000: "#feecf4",
       },
     },
-  },
-  fontFamily: {
-    geist: ['Geist', 'sans-serif'],
-    geistMono: ['GeistMono', 'sans-serif'],
+    fontFamily: {
+      geist: ["Geist", "sans-serif"],
+      geistMono: ["GeistMono", "sans-serif"],
+    },
   },
   extend: {
     spacing: {
