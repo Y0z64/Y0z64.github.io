@@ -8,6 +8,19 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
+    fontFamily: {
+      geist: ["Geist", "sans-serif"],
+      geistMono: ["GeistMono", "sans-serif"],
+    },
+  },
+  extend: {
+    spacing: {
+      128: "32rem",
+      144: "36rem",
+    },
+    borderRadius: {
+      "4xl": "2rem",
+    },
     colors: {
       "bg-primary": "#ffffff",
       "bg-secondary": "#fafafa",
@@ -120,8 +133,8 @@ export default {
         1000: "#430a23",
       },
       // Dark mode
-      "bg-primary-dark": "#0a0a0a",
-      "bg-secondary-dark": "#000000",
+      "bg-primary-dark": "var('--bg-dark-primary')",
+      "bg-secondary-dark": "var('--bg-dark-secondary')",
       "gray-dark": {
         100: "#1a1a1a",
         200: "#1f1f1f",
@@ -230,19 +243,6 @@ export default {
         900: "#f75f8f",
         1000: "#feecf4",
       },
-    },
-    fontFamily: {
-      geist: ["Geist", "sans-serif"],
-      geistMono: ["GeistMono", "sans-serif"],
-    },
-  },
-  extend: {
-    spacing: {
-      128: "32rem",
-      144: "36rem",
-    },
-    borderRadius: {
-      "4xl": "2rem",
     },
   },
 };

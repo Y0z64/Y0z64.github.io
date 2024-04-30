@@ -18,7 +18,10 @@
   display: flex;
   align-items: start;
 
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+
+  --bg-dark-primary: #1e1e1e;
+  --bg-dark-secondary: #0a0a0a;
 }
 
 a {
@@ -51,7 +54,7 @@ body {
 @media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
-    background-color: #0a0a0a;
+    background-color: --bg-dark-primary;
   }
   a:hover {
     color: #747bff;
