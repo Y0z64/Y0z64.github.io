@@ -1,4 +1,4 @@
-import ProjectButton, { Project } from "../atoms/ProjectButton";
+import ProjectButton, { Project } from "../particles/ProjectButton";
 
 
 const projects: Project[] = [

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Images from "./Images";
+import ImageSlider from "../atoms/ImageSlider";
 import { motion } from "framer-motion";
 
 export type Project = {
@@ -35,7 +35,7 @@ export default function ProjectButton({ project }: Props) {
           animate={{ opacity: 100}}
           className="snap-center w-full h-fit py-5 px-2 flex flex-col items-center justify-start"
         >
-          {project.images && <Images images={project.images} />}
+          {project.images && <ImageSlider images={project.images} />}
           <span className="text-black dark:text-gray-100 w-full text-left pl-[0.0313rem] mt-1">
             {project.description}
           </span>

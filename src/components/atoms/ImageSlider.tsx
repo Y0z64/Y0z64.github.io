@@ -1,29 +1,13 @@
+import "../../styles/styles.css";
+import { useRef, useState } from "react";
+import { animate, motion, useMotionValue } from "framer-motion";
+import clsx from "clsx";
+
 type Props = {
   images: string[];
 };
 
-// export default function Images({ images }: Props) {
-//   return images.map((image, index) => {
-//     const isRounded = Math.random() > 0.5;
-//     const imageClass = clsx('aspect-video w-full', { 'rounded-md': isRounded });
-
-//     return (
-//       <div key={index} className="p-2 w-full aspect-video">
-//         <img src={image} className={imageClass} />
-//       </div>
-//     );
-//   });
-// }
-import "../../styles/styles.css";
-import { useRef, useState } from "react";
-import {
-  animate,
-  motion,
-  useMotionValue,
-} from "framer-motion";
-import clsx from "clsx";
-
-export default function Images({ images }: Props) {
+export default function ImageSlider({ images }: Props) {
   const ref = useRef<HTMLUListElement>(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -105,11 +89,11 @@ export default function Images({ images }: Props) {
           { "rounded-md": isRounded }
         );
         return (
-            <motion.li
-              key={idx}
-              layoutId={idx}
-              className={imageClass}
-            ></motion.li>
+          <motion.li
+            key={idx}
+            layoutId={idx}
+            className={imageClass}
+          ></motion.li>
         );
       })}
     </motion.ul>
