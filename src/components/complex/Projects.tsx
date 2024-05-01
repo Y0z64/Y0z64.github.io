@@ -6,7 +6,7 @@ const projects: Project[] = [
     title: "PROJECT 1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, libero.",
-    images: ["somethign", "somethign", "somethign"],
+    images: ["somethign"],
   },
 ];
 
