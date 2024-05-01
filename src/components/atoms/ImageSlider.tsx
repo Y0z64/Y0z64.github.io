@@ -91,7 +91,6 @@ export default function ImageSlider({ images }: Props) {
         return (
           <motion.li
             key={idx}
-            layoutId={idx}
             className={imageClass}
           ></motion.li>
         );

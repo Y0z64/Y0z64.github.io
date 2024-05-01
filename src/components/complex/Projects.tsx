@@ -34,7 +34,7 @@ export default function Projects() {
     <div
       className={clsx(
         "h-screen w-screen flex flex-col justify-start items-center pt-[4.6875rem] ",
-        { "snap-center": isOpen, "": !isOpen }
+        { "snap-center": !isOpen, "": isOpen }
       )}
     >
       <div className="px-4 h-fit min-h-[31.25rem] w-full flex flex-col">

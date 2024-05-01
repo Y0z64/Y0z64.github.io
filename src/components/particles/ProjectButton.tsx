@@ -42,7 +42,7 @@ export default function ProjectButton({ project, handleOpen }: Props) {
           className="snap-center w-full h-fit py-5 px-2 flex flex-col items-center justify-start"
         >
           {project.images && <ImageSlider images={project.images} />}
-          <span className="text-black dark:text-gray-100 w-full text-left pl-[0.0313rem] mt-1">
+          <span className="text-black text-md font-geistMono dark:text-gray-100 w-full text-left pl-[0.125rem] mt-1">
             {project.description}
           </span>
         </motion.div>
