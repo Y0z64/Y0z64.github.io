@@ -10,12 +10,18 @@ export type Project = {
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
   project: Project;
+  handleOpen: (val: boolean) => void;
 }
 
-export default function ProjectButton({ project }: Props) {
+export default function ProjectButton({ project, handleOpen }: Props) {
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
+    if (show) {
+      handleOpen(false);
+    } else {
+      handleOpen(true);
+    }
     setShow(!show);
   };
 
@@ -31,8 +37,8 @@ export default function ProjectButton({ project }: Props) {
 
       {show && (
         <motion.div
-          initial={{ opacity: 0}}
-          animate={{ opacity: 100}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
           className="snap-center w-full h-fit py-5 px-2 flex flex-col items-center justify-start"
         >
           {project.images && <ImageSlider images={project.images} />}
