@@ -5,8 +5,20 @@ const projects: Project[] = [
   {
     title: "PROJECT 1",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, libero.",
-    images: ["somethign"],
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
+    images: ["somethign", "somethign"],
+  },
+  {
+    title: "PROJECT 2",
+    description:
+      "Lorem ipsum dolor  elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
+    images: ["somethign", "somethign"],
+  },
+  {
+    title: "PROJECT 3",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
+    images: ["somethign", "somethign"],
   },
 ];
 

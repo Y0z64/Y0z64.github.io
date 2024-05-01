@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Images from "./Images";
+import { motion } from "framer-motion";
 
 export type Project = {
   title: string;
@@ -16,25 +17,29 @@ export default function ProjectButton({ project }: Props) {
 
   const handleClick = () => {
     setShow(!show);
-  }
+  };
 
   return (
     <div className="h-fit w-full justify-center items-center">
-      <div
+      <button
         className="font-geistMono text-[2.7rem] text-black dark:text-gray-100 w-full text-left pl-2"
         onClick={() => handleClick()}
       >
         {project.title}
-      </div>
+      </button>
       <div className="border-gray-100 border-2 w-full h-[1px] mb-2" />
+
       {show && (
-        <div className="snap-center w-full h-fit min-h-[300px] bg-pink-400 py-5 px-2 flex flex-col items-center justify-start">
+        <motion.div
+          initial={{ opacity: 0}}
+          animate={{ opacity: 100}}
+          className="snap-center w-full h-fit py-5 px-2 flex flex-col items-center justify-start"
+        >
           {project.images && <Images images={project.images} />}
-          <span className="text-black dark:text-gray-100 w-full text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum eos
-            odio aut minima accusamus fugiat.
+          <span className="text-black dark:text-gray-100 w-full text-left pl-[0.0313rem] mt-1">
+            {project.description}
           </span>
-        </div>
+        </motion.div>
       )}
     </div>
   );

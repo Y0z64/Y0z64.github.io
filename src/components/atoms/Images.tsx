@@ -16,7 +16,12 @@ type Props = {
 // }
 import "../../styles/styles.css";
 import { useRef, useState } from "react";
-import { animate, motion, useMotionValue} from "framer-motion";
+import {
+  animate,
+  motion,
+  useMotionValue,
+} from "framer-motion";
+import clsx from "clsx";
 
 export default function Images({ images }: Props) {
   const ref = useRef<HTMLUListElement>(null);
@@ -84,21 +89,29 @@ export default function Images({ images }: Props) {
   };
 
   return (
-      <motion.ul
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        onScroll={handleScroll}
-        className="flex list-none h-fit w-full px-[1.25rem] overflow-x-scroll"
-      >
-        {images.map((idx) => (
-          <motion.li
-            className="bg-white aspect-video h-[200px] px-2 w-screen"
-            key={idx}
-          ></motion.li>
-        ))}
-      </motion.ul>
+    <motion.ul
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      onScroll={handleScroll}
+      className="flex list-none h-fit w-full pr-1 pb-3 overflow-x-scroll snap-x snap-mandatory"
+    >
+      {images.map((idx) => {
+        const isRounded = Math.random() > 0.5;
+        const imageClass = clsx(
+          "bg-white aspect-video h-[12.5rem] mx-2 px-2 w-screen snap-center ",
+          { "rounded-md": isRounded }
+        );
+        return (
+            <motion.li
+              key={idx}
+              layoutId={idx}
+              className={imageClass}
+            ></motion.li>
+        );
+      })}
+    </motion.ul>
   );
 }
