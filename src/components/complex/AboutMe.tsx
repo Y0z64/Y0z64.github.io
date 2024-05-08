@@ -1,6 +1,9 @@
 export default function AboutMe() {
   return (
-    <div className="min-h-[36.25rem] h-fit w-screen flex flex-col justify-center items-center snap-center ">
+    <div
+      id="whoami"
+      className="min-h-[36.25rem] h-fit w-screen flex flex-col justify-center items-center snap-center "
+    >
       <div className="w-11/12 bg-white px-6 pb-7">
         <h1 className="font-geistMono w-full text-center text-[3rem] tracking-tighter my-5">
           Who am I?

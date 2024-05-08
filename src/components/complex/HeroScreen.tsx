@@ -8,7 +8,7 @@ export default function HeroScreen() {
   return (
     <div className="h-screen relative w-screen flex flex-col justify-between items-end snap-center mb-4">
       <Nav />
-      <div className="min-h-[36rem] w-96 h-full mx-1">
+      <div className="min-h-[36rem] min-w-96 w-full h-full mx-1">
         <Canvas>
           <color attach="background" args={["black"]} />
           <AsciiRenderer fgColor="white" bgColor="transparent" />
@@ -44,7 +44,7 @@ function Torusknot(props: ThreeElements["mesh"]) {
   );
   return (
     <mesh
-      scale={Math.min(viewport.width, viewport.height) / 2.5}
+      scale={Math.min(viewport.width, viewport.height) / 3}
       {...props}
       ref={ref}
     >
