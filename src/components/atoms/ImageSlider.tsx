@@ -1,4 +1,4 @@
-import "../../styles/styles.css";
+import "../../styles/imageSlider.css";
 import { useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import clsx from "clsx";
