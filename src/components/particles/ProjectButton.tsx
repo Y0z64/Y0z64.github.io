@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageSlider from "../atoms/ImageSlider";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 export type Project = {
   title: string;
@@ -11,9 +12,10 @@ export type Project = {
 interface Props extends React.HTMLProps<HTMLDivElement> {
   project: Project;
   handleOpen: (val: boolean) => void;
+  dark: boolean
 }
 
-export default function ProjectButton({ project, handleOpen }: Props) {
+export default function ProjectButton({ project, handleOpen, dark }: Props) {
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
@@ -25,14 +27,26 @@ export default function ProjectButton({ project, handleOpen }: Props) {
     setShow(!show);
   };
 
+  const theme = (val: boolean) => {
+    return val ? "dark" : "light"
+  };
+
   return (
     <div className="h-fit w-full justify-center items-center">
-      <button
-        className="font-geistMono text-[2.7rem] text-black dark:text-gray-100 w-full text-left pl-2"
+      <motion.button
+        className={clsx(
+          `font-geistMono text-[2.7rem] w-full text-left pl-2 transition-colors duration-300 dark:hover:bg-white dark:hover:text-[#1e1e1e] hover:bg-black hover:text-gray-100`,
+          {
+            [`${theme(dark)}-theme`]: show,
+            [`${theme(!dark)}-theme`]: !show,
+          }
+        )}
+        whileHover={{ paddingLeft: "1rem" }}
+        animate={show ? { paddingLeft: "1.2rem" } : { paddingLeft: "0.5rem" }}
         onClick={() => handleClick()}
       >
         {project.title}
-      </button>
+      </motion.button>
       <div className="border-gray-100 border-2 w-full h-[1px] mb-2" />
 
       {show && (

@@ -44,6 +44,7 @@ export default function Projects() {
             key={index}
             project={project}
             handleOpen={handleOpen}
+            dark={true}
           />
         ))}
       </div>

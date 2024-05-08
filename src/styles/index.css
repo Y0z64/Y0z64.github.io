@@ -43,6 +43,16 @@ body {
   min-height: 100vh;
 }
 
+.dark-theme {
+  background-color: white;
+  color: var(--bg-dark-primary);
+}
+
+.light-theme {
+  background-color: var(--bg-dark-primary);
+  color: white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
