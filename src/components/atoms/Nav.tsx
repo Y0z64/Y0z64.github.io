@@ -14,7 +14,10 @@ export default function Nav() {
       >
         projects
       </a>
-      <a className="font-geistMono text-lg text-black dark:text-gray-100">
+      <a
+        href="#contact"
+        className="font-geistMono text-lg text-black dark:text-gray-100"
+      >
         contact
       </a>
     </nav>
