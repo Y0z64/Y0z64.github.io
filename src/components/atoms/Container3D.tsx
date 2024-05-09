@@ -1,14 +1,14 @@
 import { Mesh } from "three";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Canvas, ThreeElements, useFrame, useThree } from "@react-three/fiber";
 import { AsciiRenderer } from "@react-three/drei";
 
 export default function Container3D() {
   return (
-    <div className="mx-1 h-full min-h-[36rem] w-full flex-grow ">
+    <div className="mx-1 h-full min-h-[36rem] w-full flex-grow invert">
       <Canvas>
         <color attach="background" args={["black"]} />
-        <AsciiRenderer fgColor="white" bgColor="transparent" />
+        <AsciiRenderer fgColor="black" bgColor="transparent" />
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}
@@ -28,22 +28,18 @@ function Torusknot(props: ThreeElements["mesh"]) {
   const ref = useRef<Mesh>(null!);
   const viewport = useThree((state) => state.viewport);
 
-  useEffect(() => {
-    console.log("viewport", viewport.width);
-  }, [viewport]);
-
   useFrame(
     (_state, delta) =>
       (ref.current.rotation.x = ref.current.rotation.y += delta / 2),
   );
 
   const scaleNum = () => {
-    const limits = {min: 5, max:10}
+    const limits = { min: 5, max: 10 };
     const offset = 2.3;
-    return ((viewport.width-limits.min) / (limits.max - limits.min))*1.2 + offset;
+    return (
+      ((viewport.width - limits.min) / (limits.max - limits.min)) * 1.2 + offset
+    );
   };
-
-  useEffect(() => {console.log("Scale factor", scaleNum())}, [viewport.width])
 
   return (
     <mesh
