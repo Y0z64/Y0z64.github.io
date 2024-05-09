@@ -35,7 +35,7 @@ export default function ProjectButton({ project, handleOpen }: Props) {
           {
             "bg-black text-gray-100 hover:bg-white hover:text-[#1e1e1e] dark:bg-[#1e1e1e]":
               !show,
-            "bg-white text-[#1e1e1e] hover:bg-black hover:text-gray-100": show,
+            "bg-white text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-gray-100": show,
           },
         )}
         whileHover={{ paddingLeft: "1.7rem" }}
