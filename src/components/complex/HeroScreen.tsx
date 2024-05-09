@@ -1,57 +1,16 @@
-import { Canvas, ThreeElements, useFrame, useThree } from "@react-three/fiber";
-import { AsciiRenderer } from "@react-three/drei";
 import Nav from "../atoms/Nav";
-import { Mesh } from "three";
-import { useRef } from "react";
+import Container3D from "../atoms/Container3D";
 
 export default function HeroScreen() {
   return (
-    <div className="h-screen relative w-screen flex flex-col justify-between items-end snap-center mb-4">
+    <div className="relative mb-4 flex h-screen w-screen snap-center flex-col items-end justify-between">
       <Nav />
-      <div className="flex flex-col md:flex-row-reverse order h-full w-full justify-end items-end">
-        <div className="min-h-[36rem] h-full min-w-96  w-full mx-1">
-          <Canvas>
-            <color attach="background" args={["black"]} />
-            <AsciiRenderer fgColor="white" bgColor="transparent" />
-            <ambientLight intensity={Math.PI / 2} />
-            <spotLight
-              position={[10, 10, 10]}
-              angle={0.15}
-              penumbra={1}
-              decay={0}
-              intensity={Math.PI}
-            />
-            <pointLight
-              position={[-10, -10, -10]}
-              decay={0}
-              intensity={Math.PI}
-            />
-            <Torusknot position={[0.7, -0.4, 0]} />
-          </Canvas>
-        </div>
-        <h1 className="font-geistMono flex justify-start h-min pl-3 tracking-tight -mb-4 w-full text-black dark:text-gray-100 text-[7rem] md:text-[14rem]">
+      <div className="order flex h-full w-full flex-col items-end justify-end xl:flex-row-reverse">
+        <Container3D />
+        <h1 className="-mb-4 flex h-min w-full justify-start pl-3 font-geistMono text-[7rem] tracking-tight text-black md:mr-4 lg:text-[14rem] xl:w-min lg:ml-12 dark:text-gray-100">
           Y0z64
         </h1>
       </div>
     </div>
-  );
-}
-
-function Torusknot(props: ThreeElements["mesh"]) {
-  const ref = useRef<Mesh>(null!);
-  const viewport = useThree((state) => state.viewport);
-  useFrame(
-    (_state, delta) =>
-      (ref.current.rotation.x = ref.current.rotation.y += delta / 2),
-  );
-  return (
-    <mesh
-      scale={Math.min(viewport.width, viewport.height) / 3}
-      {...props}
-      ref={ref}
-    >
-      <torusKnotGeometry args={[1, 0.2, 128, 32]} />
-      <meshStandardMaterial color="red" />
-    </mesh>
   );
 }
