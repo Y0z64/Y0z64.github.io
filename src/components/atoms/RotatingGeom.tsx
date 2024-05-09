@@ -1,9 +1,13 @@
-import { Icosahedron } from "@react-three/drei";
 import { ThreeElements, useFrame, useThree } from "@react-three/fiber";
-import { useRef } from "react";
-import { Mesh, MeshNormalMaterial, MeshPhongMaterial } from "three";
+import { useMemo, useRef } from 'react';
+import { Mesh, MeshBasicMaterial } from "three";
 
-export default function RotatingIcosahedron(props: ThreeElements["mesh"]) {
+type MeshProps = ThreeElements["mesh"];
+
+interface TorusknotProps extends MeshProps {
+  children: React.ReactNode;
+}
+export default function Torusknot({ children, ...props }: TorusknotProps) {
   const ref = useRef<Mesh>(null!);
   const viewport = useThree((state) => state.viewport);
 
@@ -20,14 +24,16 @@ export default function RotatingIcosahedron(props: ThreeElements["mesh"]) {
     );
   };
 
+  const mat = useMemo(() => new MeshBasicMaterial({color: "red"}), []);
+
   return (
     <mesh
       scale={Math.min(viewport.width, viewport.height) / scaleNum()}
       {...props}
       ref={ref}
-      material={new MeshPhongMaterial()}
+      material={mat}
     >
-      <Icosahedron rotation={[3, 0, 0]} material={new MeshNormalMaterial()} />
+      {children}
     </mesh>
   );
 }
