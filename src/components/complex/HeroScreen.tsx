@@ -1,17 +1,14 @@
 import { motion } from "framer-motion";
 import Nav from "../atoms/Nav";
 import Container3D from "../particles/Container3D";
-import RotatingGeom from "../atoms/RotatingGeom";
 
 export default function HeroScreen() {
   return (
     <div className="relative mb-4 flex h-screen w-screen snap-center flex-col items-end justify-between">
       <Nav />
       <div className="order flex h-full w-full flex-col items-end justify-end xl:flex-row-reverse">
-        <Container3D>
-          <RotatingGeom position={[1, 0, -0.6]}>
-            <torusKnotGeometry args={[1, 0.2, 128, 32]} />
-          </RotatingGeom>
+        <Container3D position={[1, 0, -0.6]}>
+          <torusKnotGeometry args={[1, 0.2, 128, 32]} />
         </Container3D>
         <motion.a
           whileHover={{ scale: 1.04 }}

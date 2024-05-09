@@ -1,5 +1,4 @@
 import Container3D from "../particles/Container3D";
-import RotatingGeom from "../atoms/RotatingGeom";
 import { Icosahedron } from "@react-three/drei";
 import { MeshNormalMaterial } from "three";
 
@@ -12,13 +11,11 @@ export default function AboutMe() {
       {/* 3d object */}
       <div className="invisible absolute flex h-full w-full items-center justify-center p-6 lg:visible lg:relative">
         <div className="hidden h-full w-0 lg:flex lg:w-full">
-          <Container3D aL={false}>
-            <RotatingGeom position={[0, 0, 0]}>
-              <Icosahedron
-                rotation={[3, 0, 0]}
-                material={new MeshNormalMaterial()}
-              />
-            </RotatingGeom>
+          <Container3D aL={false} position={[0, 0, 0]}>
+            <Icosahedron
+              rotation={[3, 0, 0]}
+              material={new MeshNormalMaterial()}
+            />
           </Container3D>
         </div>
       </div>

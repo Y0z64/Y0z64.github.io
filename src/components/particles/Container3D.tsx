@@ -1,12 +1,17 @@
-import { PropsWithChildren, useMemo } from "react";
-import { Canvas } from '@react-three/fiber';
+import { useMemo } from "react";
+import { Canvas, ThreeElements } from "@react-three/fiber";
 import { AsciiRenderer } from "@react-three/drei";
+import RotatingGeom from "../atoms/RotatingGeom";
 
-interface Props extends PropsWithChildren {
+type MeshProps = ThreeElements["mesh"];
+
+interface Props extends MeshProps {
+  children: React.ReactNode;
   aL?: boolean;
 }
 
-export default function Container3D({ children, aL = true }: Props) {
+
+export default function Container3D({ children, aL = true, ...props }: Props) {
   const AsciiShader = useMemo(
     () => () => AsciiRenderer({ fgColor: "black", bgColor: "transparent" }),
     [],
@@ -42,7 +47,7 @@ export default function Container3D({ children, aL = true }: Props) {
         {aL && <AmbientLight />}
         <SpotLight />
         <PointLight />
-        {children}
+        <RotatingGeom {...props}>{children}</RotatingGeom>
       </Canvas>
     </div>
   );
