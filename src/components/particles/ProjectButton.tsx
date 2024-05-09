@@ -12,7 +12,7 @@ export type Project = {
 interface Props extends React.HTMLProps<HTMLDivElement> {
   project: Project;
   handleOpen: (val: boolean) => void;
-  dark: boolean
+  dark: boolean;
 }
 
 export default function ProjectButton({ project, handleOpen, dark }: Props) {
@@ -28,7 +28,7 @@ export default function ProjectButton({ project, handleOpen, dark }: Props) {
   };
 
   const theme = (val: boolean) => {
-    return val ? "dark" : "light"
+    return val ? "dark" : "light";
   };
 
   return (
@@ -39,7 +39,7 @@ export default function ProjectButton({ project, handleOpen, dark }: Props) {
           {
             [`${theme(dark)}-theme`]: show,
             [`${theme(!dark)}-theme`]: !show,
-          }
+          },
         )}
         whileHover={{ paddingLeft: "1rem" }}
         animate={show ? { paddingLeft: "1.2rem" } : { paddingLeft: "0.5rem" }}

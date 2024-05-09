@@ -8,8 +8,8 @@ export default function HeroScreen() {
   return (
     <div className="h-screen relative w-screen flex flex-col justify-between items-end snap-center mb-4">
       <Nav />
-      <div className="flex flex-col h-full w-full justify-end items-end">
-        <div className="min-h-[36rem] h-full min-w-96 md:w-10/12 w-full mx-1">
+      <div className="flex flex-col md:flex-row-reverse order h-full w-full justify-end items-end">
+        <div className="min-h-[36rem] h-full min-w-96  w-full mx-1">
           <Canvas>
             <color attach="background" args={["black"]} />
             <AsciiRenderer fgColor="white" bgColor="transparent" />
@@ -26,7 +26,7 @@ export default function HeroScreen() {
               decay={0}
               intensity={Math.PI}
             />
-            <Torusknot position={[0.7,-0.4,0]}/>
+            <Torusknot position={[0.7, -0.4, 0]} />
           </Canvas>
         </div>
         <h1 className="font-geistMono flex justify-start h-min pl-3 tracking-tight -mb-4 w-full text-black dark:text-gray-100 text-[7rem] md:text-[14rem]">
@@ -42,7 +42,7 @@ function Torusknot(props: ThreeElements["mesh"]) {
   const viewport = useThree((state) => state.viewport);
   useFrame(
     (_state, delta) =>
-      (ref.current.rotation.x = ref.current.rotation.y += delta / 2)
+      (ref.current.rotation.x = ref.current.rotation.y += delta / 2),
   );
   return (
     <mesh

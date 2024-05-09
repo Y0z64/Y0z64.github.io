@@ -25,4 +25,3 @@ export default function Box(props: ThreeElements["mesh"]) {
     </mesh>
   );
 }
-

@@ -1,4 +1,3 @@
-
 export default function Nav() {
   return (
     <nav className="flex items-center justify-end space-x-6 md:space-x-11 w-full px-4 pt-3">
