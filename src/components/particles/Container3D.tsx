@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
 import { AsciiRenderer } from "@react-three/drei";
 import RotatingGeom from "../atoms/RotatingGeom";
@@ -9,7 +9,6 @@ interface Props extends MeshProps {
   children: React.ReactNode;
   aL?: boolean;
 }
-
 
 export default function Container3D({ children, aL = true, ...props }: Props) {
   const AsciiShader = useMemo(
@@ -39,6 +38,9 @@ export default function Container3D({ children, aL = true, ...props }: Props) {
     );
   }, []);
 
+  const MemoizedRotatingGeom = memo(RotatingGeom);
+
+
   return (
     <div className="mx-1 h-full min-h-[36rem] w-full flex-grow invert">
       <Canvas>
@@ -47,7 +49,7 @@ export default function Container3D({ children, aL = true, ...props }: Props) {
         {aL && <AmbientLight />}
         <SpotLight />
         <PointLight />
-        <RotatingGeom {...props}>{children}</RotatingGeom>
+        <MemoizedRotatingGeom {...props}>{children}</MemoizedRotatingGeom>
       </Canvas>
     </div>
   );
