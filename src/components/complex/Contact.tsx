@@ -33,7 +33,7 @@ export default function Contact() {
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-28 xl:h-[192px] w-28 xl:w-[192px] stroke-white"
+          className="h-28 w-28 stroke-white lg:h-[192px] lg:w-[192px]"
         >
           <motion.path
             d="M7 7h10v10"
