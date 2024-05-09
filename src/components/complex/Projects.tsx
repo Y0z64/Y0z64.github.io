@@ -34,11 +34,11 @@ export default function Projects() {
     <div
       id="projects"
       className={clsx(
-        "min-h-screen h-fit w-screen flex flex-col justify-start items-center pt-[4.6875rem] ",
+        "flex h-fit min-h-screen w-screen flex-col items-center justify-start pt-[4.6875rem] ",
         { "snap-center": !isOpen, "": isOpen },
       )}
     >
-      <div className="px-4 h-fit min-h-[31.25rem] w-full flex flex-col">
+      <div className="flex h-fit min-h-[31.25rem] w-full flex-col px-4">
         {projects.map((project, index) => (
           <ProjectButton
             key={index}

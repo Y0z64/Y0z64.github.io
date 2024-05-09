@@ -22,8 +22,8 @@ export default {
       "4xl": "2rem",
     },
     colors: {
-      'primary': "#ffffff",
-      'secondary': "#fafafa",
+      primary: "#ffffff",
+      secondary: "#fafafa",
       gray: {
         100: "#f2f2f2",
         200: "#ebebeb",

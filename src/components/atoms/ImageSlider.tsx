@@ -80,7 +80,7 @@ export default function ImageSlider({ images }: Props) {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onScroll={handleScroll}
-      className="flex list-none h-fit w-full pr-1 pb-3 overflow-x-scroll snap-x snap-mandatory"
+      className="flex h-fit w-full snap-x snap-mandatory list-none overflow-x-scroll pb-3 pr-1"
     >
       {images.map((idx) => {
         const isRounded = Math.random() > 0.5;

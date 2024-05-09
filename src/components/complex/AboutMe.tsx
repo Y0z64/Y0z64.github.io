@@ -1,5 +1,5 @@
-import Torus from "../atoms/Torus";
 import Container3D from "../particles/Container3D";
+import RotatingIcosahedron from "../atoms/RotatingIcosahedron";
 
 export default function AboutMe() {
   return (
@@ -8,20 +8,20 @@ export default function AboutMe() {
       className="flex h-fit min-h-[36.25rem] w-screen snap-center items-center justify-center lg:h-screen"
     >
       {/* 3d object */}
-      <div className="flex h-full w-full items-center justify-center p-6 invisible absolute lg:visible lg:relative">
-        <div className="hidden h-full w-0 lg:w-full lg:flex">
-          <Container3D>
-            <Torus position={[0, 0, -2]} />
+      <div className="invisible absolute flex h-full w-full items-center justify-center p-6 lg:visible lg:relative">
+        <div className="hidden h-full w-0 lg:flex lg:w-full">
+          <Container3D ambientLight={false}>
+            <RotatingIcosahedron position={[0, 0, 0]} />
           </Container3D>
         </div>
       </div>
       {/* Text */}
       <div className="flex h-full w-full items-center justify-center lg:p-6">
-        <div className="w-11/12 bg-white px-6 pb-7 h-fit lg:h-full lg:w-full rounded-sm overflow-y-auto">
-          <h1 className="my-5 w-full text-center font-geistMono text-[3rem] md:text-[4.5rem] xl:text-[6rem] xl:my-8 tracking-tighter">
+        <div className="h-fit w-11/12 overflow-y-auto rounded-sm bg-white px-6 pb-7 text-black lg:h-full lg:w-full">
+          <h1 className="my-5 w-full text-center font-geistMono text-[3rem] tracking-tighter md:text-[4.5rem] xl:my-8 xl:text-[6rem]">
             Who am I?
           </h1>
-          <span className="w-full flex justify-center items-center text-left font-geistMono text-lg md:text-2xl xl:px-10 xl:leading-relaxed">
+          <span className="flex w-full items-center justify-center text-left font-geistMono text-lg md:text-2xl xl:px-10 xl:leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nihil
             alias tenetur assumenda quae mollitia est, ratione illo sint?
             Aspernatur, ullam? Ducimus fugit nulla suscipit voluptas iusto
