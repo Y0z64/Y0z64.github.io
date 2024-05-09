@@ -1,7 +1,6 @@
 import "../../styles/imageSlider.css";
 import { useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
-import clsx from "clsx";
 
 type Props = {
   images: string[];
@@ -80,20 +79,13 @@ export default function ImageSlider({ images }: Props) {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onScroll={handleScroll}
-      className="flex h-fit w-full snap-x snap-mandatory list-none overflow-x-scroll pb-3 pr-1"
+      className="flex h-fit w-full snap-x snap-mandatory list-none overflow-x-scroll pb-3 pr-1 lg:snap-none"
     >
       {images.map((idx) => {
-        const isRounded = Math.random() > 0.5;
         return (
           <motion.li
             key={idx}
-            className={clsx(
-              "mx-2 aspect-video min-h-[12.5rem] w-screen snap-center bg-white px-2 invert dark:invert-0",
-              {
-                "rounded-xs lg:rounded-md": !isRounded,
-                "rounded-md lg:rounded-3xl": isRounded,
-              },
-            )}
+            className="rounded-xs mx-2 aspect-video min-h-[14.5rem] w-screen snap-center bg-white px-2 invert md:min-h-[20rem] lg:min-h-[30rem] lg:rounded-md dark:invert-0"
           ></motion.li>
         );
       })}

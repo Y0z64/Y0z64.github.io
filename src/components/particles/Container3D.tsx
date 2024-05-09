@@ -1,6 +1,6 @@
 import { memo, useMemo } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
-import { AsciiRenderer } from "@react-three/drei";
+import { AsciiRenderer, CameraControls } from "@react-three/drei";
 import RotatingGeom from "../atoms/RotatingGeom";
 
 type MeshProps = ThreeElements["mesh"];
@@ -40,10 +40,14 @@ export default function Container3D({ children, aL = true, ...props }: Props) {
 
   const MemoizedRotatingGeom = memo(RotatingGeom);
 
+  const Control = useMemo(() => {return () => <CameraControls />}, []);
+
 
   return (
     <div className="mx-1 h-full min-h-[36rem] w-full flex-grow invert">
       <Canvas>
+        <Control/>
+        <CameraControls/>
         <color attach="background" args={["black"]} />
         <AsciiShader />
         {aL && <AmbientLight />}
