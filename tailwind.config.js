@@ -22,8 +22,8 @@ export default {
       "4xl": "2rem",
     },
     colors: {
-      "bg-primary": "#ffffff",
-      "bg-secondary": "#fafafa",
+      'primary': "#ffffff",
+      'secondary': "#fafafa",
       gray: {
         100: "#f2f2f2",
         200: "#ebebeb",
@@ -133,8 +133,8 @@ export default {
         1000: "#430a23",
       },
       // Dark mode
-      "bg-primary-dark": "var('--bg-dark-primary')",
-      "bg-secondary-dark": "var('--bg-dark-secondary')",
+      primarydark: "var('--bg-dark-primary')",
+      secondarydark: "var('--bg-dark-secondary')",
       "gray-dark": {
         100: "#1a1a1a",
         200: "#1f1f1f",

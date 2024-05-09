@@ -13,13 +13,14 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="h-screen relative w-screen flex flex-col justify-end items-end snap-center mb-4"
+      className="relative mb-4 flex h-screen min-h-[100px] w-screen snap-center flex-col items-end justify-end"
     >
-      <a
+      <motion.a
+        whileHover={{ scale: 1.1 }}
         href="mailto:yairprogrammer@gmail.com?subject=Let's%20Connect!"
-        className="flex w-min justify-center items-center mb-4"
+        className="mb-4 flex w-min items-center justify-center"
       >
-        <span className="font-geistMono text-white text-5xl w-min">
+        <span className="w-min font-geistMono text-5xl text-white lg:text-8xl">
           {"Wanna\nTalk?"}
         </span>
         <svg
@@ -32,7 +33,7 @@ export default function Contact() {
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="stroke-white w-28 h-28"
+          className="h-28 xl:h-[192px] w-28 xl:w-[192px] stroke-white"
         >
           <motion.path
             d="M7 7h10v10"
@@ -49,7 +50,7 @@ export default function Contact() {
             viewport={{ once: true }}
           />
         </svg>
-      </a>
+      </motion.a>
     </div>
   );
 }

@@ -84,11 +84,18 @@ export default function ImageSlider({ images }: Props) {
     >
       {images.map((idx) => {
         const isRounded = Math.random() > 0.5;
-        const imageClass = clsx(
-          "bg-white aspect-video h-[12.5rem] mx-2 px-2 w-screen snap-center ",
-          { "rounded-md": isRounded },
+        return (
+          <motion.li
+            key={idx}
+            className={clsx(
+              "mx-2 aspect-video min-h-[12.5rem] w-screen snap-center bg-white px-2 invert dark:invert-0",
+              {
+                "rounded-xs lg:rounded-md": !isRounded,
+                "rounded-md lg:rounded-3xl": isRounded,
+              },
+            )}
+          ></motion.li>
         );
-        return <motion.li key={idx} className={imageClass}></motion.li>;
       })}
     </motion.ul>
   );

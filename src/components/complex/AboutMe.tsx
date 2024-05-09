@@ -7,19 +7,21 @@ export default function AboutMe() {
       id="whoami"
       className="flex h-fit min-h-[36.25rem] w-screen snap-center items-center justify-center lg:h-screen"
     >
-      <div className="flex h-full w-full items-center justify-center p-6">
-        <div className="hidden h-full w-full lg:flex">
+      {/* 3d object */}
+      <div className="flex h-full w-full items-center justify-center p-6 invisible absolute lg:visible lg:relative">
+        <div className="hidden h-full w-0 lg:w-full lg:flex">
           <Container3D>
-            <Torus position={[1, 0, -0.6]} />
+            <Torus position={[0, 0, -2]} />
           </Container3D>
         </div>
       </div>
+      {/* Text */}
       <div className="flex h-full w-full items-center justify-center lg:p-6">
-        <div className="w-11/12 bg-white px-6 pb-7 lg:h-full lg:w-full">
-          <h1 className="my-5 w-full text-center font-geistMono text-[3rem] tracking-tighter">
+        <div className="w-11/12 bg-white px-6 pb-7 h-fit lg:h-full lg:w-full rounded-sm overflow-y-auto">
+          <h1 className="my-5 w-full text-center font-geistMono text-[3rem] md:text-[4.5rem] xl:text-[6rem] xl:my-8 tracking-tighter">
             Who am I?
           </h1>
-          <span className="w-full text-left font-geistMono text-lg">
+          <span className="w-full flex justify-center items-center text-left font-geistMono text-lg md:text-2xl xl:px-10 xl:leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nihil
             alias tenetur assumenda quae mollitia est, ratione illo sint?
             Aspernatur, ullam? Ducimus fugit nulla suscipit voluptas iusto

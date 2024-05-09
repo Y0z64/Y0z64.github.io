@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageSlider from "../atoms/ImageSlider";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 export type Project = {
   title: string;
@@ -30,9 +31,17 @@ export default function ProjectButton({ project, handleOpen }: Props) {
   return (
     <div className="h-fit w-full items-center justify-center">
       <motion.button
-        className="w-full bg-black text-gray-100 pl-2 text-left font-geistMono text-[2.7rem] transition-colors duration-300 hover:bg-white hover:text-[#1e1e1e] dark:bg-[#1e1e1e]"
-        whileHover={{ paddingLeft: "1rem" }}
-        animate={show ? { paddingLeft: "1.2rem" } : { paddingLeft: "0.5rem" }}
+        className={clsx(
+          "w-full pl-2 text-left font-geistMono text-[2.7rem] transition-colors duration-300",
+          {
+            "bg-black text-gray-100 hover:bg-white hover:text-[#1e1e1e] dark:bg-[#1e1e1e]":
+              !show,
+            "bg-white text-[#1e1e1e] hover:bg-black hover:text-gray-100":
+              show,
+          },
+        )}
+        whileHover={{ paddingLeft: "1.7rem" }}
+        animate={show ? { paddingLeft: "1.7rem" } : { paddingLeft: "0.5rem" }}
         onClick={() => handleClick()}
       >
         {project.title}
@@ -43,12 +52,14 @@ export default function ProjectButton({ project, handleOpen }: Props) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 100 }}
-          className="flex h-fit w-full snap-center flex-col items-center justify-start px-2 py-5"
+          className="bg-primary flex h-fit w-full snap-center flex-col items-center justify-start px-2 py-5"
         >
           {project.images && <ImageSlider images={project.images} />}
-          <span className="text-md mt-1 w-full pl-[0.125rem] text-left font-geistMono text-gray-100">
-            {project.description}
-          </span>
+          <div className="flex h-full w-full items-center justify-start">
+            <span className="text-md mt-1 w-full max-w-[1080px] pl-[0.125rem] text-left font-geistMono text-gray-100 lg:text-2xl">
+              {project.description}
+            </span>
+          </div>
         </motion.div>
       )}
     </div>

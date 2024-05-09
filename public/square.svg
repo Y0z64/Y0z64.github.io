@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square">
+  <style>
+    rect {
+      stroke: black;
+      fill: black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      rect {
+        stroke: white;
+        fill: white;
+      }
+    }
+  </style><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
