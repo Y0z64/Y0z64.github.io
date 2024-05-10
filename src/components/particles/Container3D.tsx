@@ -67,9 +67,12 @@ export default function Container3D({ children, enableRotate = true, ...props }:
   return (
     <div
       ref={ref}
-      className="mx-1 h-full min-h-[36rem] w-full flex-grow invert"
+      className="mx-1 h-full min-h-[36rem] w-full flex-grow relative invert"
     >
-      <Canvas performance={performance} frameloop="demand" className="canvas">
+      <div className="fixed h-full w-full top-0 left-0 z-40 lg:hidden">
+
+      </div>
+      <Canvas performance={performance} frameloop="demand">
         <AdaptiveDpr pixelated />
         <Controls enableRotate={enableRotate} />
         <color attach="background" args={["black"]} />
