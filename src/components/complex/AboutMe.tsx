@@ -6,7 +6,7 @@ export default function AboutMe() {
   return (
     <div
       id="whoami"
-      className="flex h-fit min-h-[36.25rem] w-screen snap-center items-center justify-center lg:h-screen"
+      className="flex max-h-screen h-fit min-h-[36.25rem] w-screen snap-center items-center justify-center lg:h-screen"
     >
       {/* 3d object */}
       <div className="invisible absolute flex h-full w-full items-center justify-center p-6 xl:visible xl:relative">

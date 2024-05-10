@@ -45,7 +45,7 @@ export default function Projects() {
         { "snap-center": !isOpen, "": isOpen },
       )}
     >
-      <div className="flex h-fit min-h-[31.25rem] w-full flex-col px-4">
+      <div className="flex h-fit w-full flex-col px-4">
         {projects.map((project, index) => (
           <ProjectButton
             key={index}
@@ -55,6 +55,9 @@ export default function Projects() {
           />
         ))}
       </div>
+      {projects.length <= 3 && (
+        <div className="flex h-fit w-full font-geistMono tracking-wide justify-center items-center text-lg text-white">More comming soon...</div>
+      )}
     </div>
   );
 }
