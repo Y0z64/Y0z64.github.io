@@ -33,6 +33,10 @@
   }
 }
 
+#canvas {
+  touch-action: auto!important;
+}
+
 body {
   margin: 0;
   display: flex;
