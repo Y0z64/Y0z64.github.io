@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="relative mb-4 flex h-screen min-h-[100px] w-screen snap-center flex-col items-end justify-end"
+      className="relative mb-4 flex h-dvh w-screen snap-center flex-col items-end justify-end"
     >
       <motion.a
         whileHover={{ scale: 1.1 }}
