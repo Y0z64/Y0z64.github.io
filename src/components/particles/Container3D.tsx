@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useRef } from "react";
+import { memo, useMemo, useRef } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
 import { AdaptiveDpr, AsciiRenderer, OrbitControls, OrbitControlsProps } from "@react-three/drei";
 import RotatingGeom from "../atoms/RotatingGeom";
@@ -14,10 +14,6 @@ interface Props extends MeshProps {
 export default function Container3D({ children, ...props }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref);
-
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
 
   THREE.ColorManagement.enabled = true;
 

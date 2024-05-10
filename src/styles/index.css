@@ -57,8 +57,6 @@ body {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
     mix-blend-mode: difference;
   }
 }
@@ -87,4 +85,20 @@ body {
     font-display: optional;
     src: url(/src/assets/fonts/GeistMono/GeistMonoVF.woff2) format("woff2");
   }
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 5px;
+  background: transparent;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff3;
 }
