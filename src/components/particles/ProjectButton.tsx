@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ImageSlider from "../atoms/ImageSlider";
+import ImageSlider from "./ImageSlider";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 

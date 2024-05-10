@@ -1,56 +1,28 @@
-import { motion } from "framer-motion";
+import SocialButton from "../atoms/SocialButton";
+import SocialBar from "../particles/SocialBar";
+import ConnectButton from "../atoms/ConnectButton";
+import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 
 export default function Contact() {
-  const icon = {
-    hidden: {
-      pathLength: 0,
-    },
-    visible: {
-      pathLength: 1,
-    },
-  };
-
   return (
     <div
       id="contact"
       className="relative mb-4 flex h-[50vh] w-screen snap-end flex-col items-end justify-end lg:h-[40vh] lg:snap-center"
     >
-      <motion.a
-        whileHover={{ scale: 1.1 }}
-        href="mailto:yairprogrammer@gmail.com?subject=Let's%20Connect!"
-        className="mb-4 flex w-min items-center justify-center"
-      >
-        <span className="w-min font-geistMono text-5xl text-white lg:text-8xl">
-          {"Wanna\nTalk?"}
-        </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-28 w-28 stroke-white lg:h-[192px] lg:w-[192px]"
-        >
-          <motion.path
-            d="M7 7h10v10"
-            variants={icon}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          />
-          <motion.path
-            d="M7 17 17 7"
-            variants={icon}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          />
-        </svg>
-      </motion.a>
+      <div className="flex h-fit w-full items-end justify-between">
+        <SocialBar>
+          <SocialButton href="https://www.github.com/Y0z64">
+            <FaGithubSquare className="size-14 md:size-20 m-1 md:m-0" stroke="black" fill="black" />{" "}
+          </SocialButton>
+          <SocialButton href="https://www.linkedin.com/in/yairprogrammer">
+            <FaLinkedin className="size-14 md:size-20 m-1 md:m-0" stroke="black" fill="black" />
+          </SocialButton>
+          <SocialButton href="https://twitter.com/y0z64_codes">
+            <FaTwitterSquare className="size-14 md:size-20 m-1 md:m-0" stroke="black" fill="black" />
+          </SocialButton>
+        </SocialBar>
+        <ConnectButton />
+      </div>
     </div>
   );
 }

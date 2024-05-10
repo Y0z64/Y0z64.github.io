@@ -9,10 +9,9 @@ type MeshProps = ThreeElements["mesh"];
 
 interface Props extends MeshProps {
   children: React.ReactNode;
-  enableRotate?: boolean
 }
 
-export default function Container3D({ children, enableRotate = true, ...props }: Props) {
+export default function Container3D({ children, ...props }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -74,7 +73,7 @@ export default function Container3D({ children, enableRotate = true, ...props }:
       </div>
       <Canvas performance={performance} frameloop="demand">
         <AdaptiveDpr pixelated />
-        <Controls enableRotate={enableRotate} />
+        <Controls />
         <color attach="background" args={["black"]} />
         <AsciiShader />
         <AmbientLight />
