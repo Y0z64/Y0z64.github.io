@@ -18,13 +18,19 @@
   display: flex;
   align-items: start;
 
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y none;
 
   --bg-dark-primary: #1e1e1e;
   --bg-dark-secondary: #0a0a0a;
 
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+@media (min-width: 976px) {
+  :root {
+    scroll-snap-type: y proximity;
+  }
 }
 
 body {
