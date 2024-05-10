@@ -1,4 +1,3 @@
-import "../../styles/imageSlider.css";
 import { useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 
@@ -85,8 +84,10 @@ export default function ImageSlider({ images }: Props) {
         return (
           <motion.li
             key={idx}
-            className="rounded-xs mx-2 aspect-video min-h-[14.5rem] w-screen snap-center bg-white px-2 invert md:min-h-[20rem] lg:min-h-[30rem] lg:rounded-md dark:invert-0"
-          ></motion.li>
+            className="rounded-xs flex justify-center items-center lg:first-of-type:ml-4 lg:last-of-type:mr-4 mx-2 aspect-video min-h-[15.5rem] w-screen snap-center bg-white px-2 invert md:min-h-[24.5rem] lg:min-h-[34rem] lg:rounded-md dark:invert-0"
+          >
+
+          </motion.li>
         );
       })}
     </motion.ul>

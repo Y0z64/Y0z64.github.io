@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import Nav from "../atoms/Nav";
 import Container3D from "../particles/Container3D";
 
+
 export default function HeroScreen() {
+
   return (
-    <div className="relative mb-4 flex h-screen w-screen snap-center flex-col items-end justify-between">
+    <div className="relative mb-4 flex h-dvh w-screen snap-center flex-col items-end justify-between">
       <Nav />
       <div className="order flex h-full w-full flex-col items-end justify-end xl:flex-row-reverse">
-        <Container3D position={[1, 0, -0.6]}>
+        <Container3D position={[1, 0, -0.8]}>
           <torusKnotGeometry args={[1, 0.2, 128, 32]} />
         </Container3D>
         <motion.a

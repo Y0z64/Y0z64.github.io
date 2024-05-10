@@ -6,16 +6,22 @@ type MeshProps = ThreeElements["mesh"];
 
 interface TorusknotProps extends MeshProps {
   children: React.ReactNode;
+  isInView: boolean;
 }
 
-export default function Torusknot({ children, ...props }: TorusknotProps) {
+export default function Torusknot({ children, isInView, ...props }: TorusknotProps) {
   const ref = useRef<Mesh>(null!);
   const viewport = useThree((state) => state.viewport);
+  const {invalidate} = useThree();
 
-  useFrame(
-    (_state, delta) =>
-      (ref.current.rotation.x = ref.current.rotation.y += delta / 2),
-  );
+  useFrame((_state, delta) => {
+    if (isInView) {
+      ref.current.rotation.x = ref.current.rotation.y += delta / 2;
+      invalidate();
+    } else {
+      null;
+    }
+  });
 
   const scaleNum = () => {
     const limits = { min: 5, max: 10 };

@@ -11,7 +11,7 @@ export default function AboutMe() {
       {/* 3d object */}
       <div className="invisible absolute flex h-full w-full items-center justify-center p-6 lg:visible lg:relative">
         <div className="hidden h-full w-0 lg:flex lg:w-full">
-          <Container3D aL={false} position={[0, 0, 0]}>
+          <Container3D position={[0, 0, 0]}>
             <Icosahedron
               rotation={[3, 0, 0]}
               material={new MeshNormalMaterial()}
