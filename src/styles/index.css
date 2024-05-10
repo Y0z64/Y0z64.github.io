@@ -59,6 +59,12 @@ body {
   :root {
     mix-blend-mode: difference;
   }
+
+  @-moz-document url-prefix() {
+  :root {
+    background-color: #ffffff;
+  }
+}
 }
 
 @media (prefers-color-scheme: dark) {
