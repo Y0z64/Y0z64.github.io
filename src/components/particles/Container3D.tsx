@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useRef } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
-import { AdaptiveDpr, AsciiRenderer, OrbitControls } from "@react-three/drei";
+import { AdaptiveDpr, AsciiRenderer, OrbitControls, OrbitControlsProps } from "@react-three/drei";
 import RotatingGeom from "../atoms/RotatingGeom";
 import * as THREE from "three";
 import { useInView } from "framer-motion";
@@ -9,15 +9,16 @@ type MeshProps = ThreeElements["mesh"];
 
 interface Props extends MeshProps {
   children: React.ReactNode;
+  enableRotate?: boolean
 }
 
-export default function Container3D({ children, ...props }: Props) {
+export default function Container3D({ children, enableRotate = true, ...props }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
   useEffect(() => {
-    console.log(isInView)
-  }, [isInView])
+    console.log(isInView);
+  }, [isInView]);
 
   THREE.ColorManagement.enabled = true;
 
@@ -50,8 +51,10 @@ export default function Container3D({ children, ...props }: Props) {
 
   const MemoizedRotatingGeom = memo(RotatingGeom);
 
-  const Control = useMemo(() => {
-    return () => <OrbitControls enableZoom={false} />;
+  const Controls = useMemo(() => {
+    return (props: OrbitControlsProps) => (
+      <OrbitControls enableZoom={false} {...props} />
+    );
   }, []);
 
   const performance = {
@@ -61,8 +64,6 @@ export default function Container3D({ children, ...props }: Props) {
     debounce: 200,
   };
 
-
-
   return (
     <div
       ref={ref}
@@ -70,7 +71,7 @@ export default function Container3D({ children, ...props }: Props) {
     >
       <Canvas performance={performance} frameloop="demand">
         <AdaptiveDpr pixelated />
-        <Control />
+        <Controls enableRotate={enableRotate} />
         <color attach="background" args={["black"]} />
         <AsciiShader />
         <AmbientLight />
