@@ -80,13 +80,18 @@ export default function ImageSlider({ images }: Props) {
       onScroll={handleScroll}
       className="flex h-fit w-full snap-x snap-mandatory list-none overflow-x-scroll pb-3 pr-1 lg:snap-none"
     >
-      {images.map((idx) => {
+      {images.map((image, idx) => {
+        const imageName = image.split("/").pop()?.split(".").shift();
         return (
           <motion.li
             key={idx}
-            className="rounded-xs flex justify-center items-center lg:first-of-type:ml-4 lg:last-of-type:mr-4 mx-2 aspect-video min-h-[15.5rem] w-screen snap-center bg-white px-2 invert md:min-h-[24.5rem] lg:min-h-[34rem] lg:rounded-md dark:invert-0"
+            className="rounded-xs mx-2 h-full flex aspect-video max-h-[15.5rem] w-fit snap-center items-center justify-center px-2 invert md:max-h-[24.5rem] lg:max-h-[34rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
           >
-
+            <img
+              src={image}
+              alt={imageName}
+              className="aspect-video h-min w-full"
+            />
           </motion.li>
         );
       })}

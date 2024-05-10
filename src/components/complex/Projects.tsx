@@ -4,29 +4,14 @@ import clsx from "clsx";
 
 const projects: Project[] = [
   {
-    title: "PROJECT 1",
+    title: "BRAINYPAD",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
+      "Welcome to BrainyPad, where your notes come to life! This innovative app leverages cutting-edge artificial intelligence to transform your study notes into interactive quizzes, helping reinforce your learning and ensuring you grasp the most important concepts. Whether you're a student, a lifelong learner, or a professional brushing up on new material, QuizNote is designed to enhance your learning experience by making study time both efficient and effective.",
+    link: "https://github.com/Gorchon/BrainyPad",
     images: [
-      "somethign",
-      "somethign",
-      "somethign",
-      "somethign",
-      "somethign",
-      "somethign",
+      "./images/brainypad/brainypad-0.png"
     ],
-  },
-  {
-    title: "PROJECT 2",
-    description:
-      "Lorem ipsum dolor  elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
-    images: ["somethign", "somethign"],
-  },
-  {
-    title: "PROJECT 3",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ut rerum necessitatibus similique quia, voluptatum architecto minima harum assumenda natus dicta eos atque qui mollitia doloribus asperiores accusantium nostrum non.",
-    images: ["somethign", "somethign"],
+    addPrefix: true
   },
 ];
 
@@ -51,12 +36,15 @@ export default function Projects() {
             key={index}
             project={project}
             handleOpen={handleOpen}
-            dark={true}
+            index={index}
+            addPrefix={project.addPrefix}
           />
         ))}
       </div>
       {projects.length <= 3 && (
-        <div className="flex h-fit w-full font-geistMono tracking-wide justify-center items-center text-lg text-white">More comming soon...</div>
+        <div className="flex h-fit w-full items-center justify-center font-geistMono text-lg tracking-wide text-white mt-3">
+          More comming soon...
+        </div>
       )}
     </div>
   );
