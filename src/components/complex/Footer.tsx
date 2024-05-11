@@ -2,7 +2,7 @@ import pkg from "../../../package.json";
 
 export default function Footer() {
   return (
-    <footer className="min-h-34 flex  w-screen snap-end items-center justify-between bg-gray-100 px-4 py-3 text-[#1e1e1e]">
+    <footer className="min-h-34 flex  w-screen   items-center justify-between bg-gray-100 px-4 py-3 text-[#1e1e1e]">
       <div className="lg:text-md flex h-full flex-col items-start justify-between text-left font-geistMono text-sm">
         <span>Contact</span>
         <a

@@ -1,5 +1,5 @@
 import { ThreeElements, useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef } from "react";
 import { Mesh } from "three";
 
 type MeshProps = ThreeElements["mesh"];
@@ -9,10 +9,14 @@ interface TorusknotProps extends MeshProps {
   isInView: boolean;
 }
 
-export default function Torusknot({ children, isInView, ...props }: TorusknotProps) {
+export default function Torusknot({
+  children,
+  isInView,
+  ...props
+}: TorusknotProps) {
   const ref = useRef<Mesh>(null!);
   const viewport = useThree((state) => state.viewport);
-  const {invalidate} = useThree();
+  const { invalidate } = useThree();
 
   useFrame((_state, delta) => {
     if (isInView) {
@@ -31,7 +35,9 @@ export default function Torusknot({ children, isInView, ...props }: TorusknotPro
     );
   };
 
-  const Mat = useMemo(() => {return () => <meshStandardMaterial color="red" />;}, []);
+  const Mat = useMemo(() => {
+    return () => <meshStandardMaterial color="red" />;
+  }, []);
 
   return (
     <mesh
@@ -40,7 +46,7 @@ export default function Torusknot({ children, isInView, ...props }: TorusknotPro
       ref={ref}
     >
       {children}
-      <Mat/>
+      <Mat />
     </mesh>
   );
 }

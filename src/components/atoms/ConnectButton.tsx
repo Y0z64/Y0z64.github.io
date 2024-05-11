@@ -1,15 +1,14 @@
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 export default function ConnectButton() {
-    const icon = {
-      hidden: {
-        pathLength: 0,
-      },
-      visible: {
-        pathLength: 1,
-      },
-    };
+  const icon = {
+    hidden: {
+      pathLength: 0,
+    },
+    visible: {
+      pathLength: 1,
+    },
+  };
   return (
     <motion.a
       whileHover={{ scale: 1.1 }}

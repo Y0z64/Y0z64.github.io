@@ -18,7 +18,12 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   addPrefix?: boolean;
 }
 
-export default function ProjectButton({ project, index, addPrefix = false, handleOpen }: Props) {
+export default function ProjectButton({
+  project,
+  index,
+  addPrefix = false,
+  handleOpen,
+}: Props) {
   const [show, setShow] = useState(false);
 
   const handleClick = () => {
@@ -54,7 +59,7 @@ export default function ProjectButton({ project, index, addPrefix = false, handl
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 100 }}
-          className="bg-primary mb-3 flex h-fit w-full snap-center flex-col items-center justify-start px-2 py-5 lg:mb-5"
+          className="bg-primary mb-3 flex h-fit w-full flex-col items-center justify-start px-2 py-5 lg:mb-5"
         >
           {project.images && <ImageSlider images={project.images} />}
           <div className="flex h-full w-full flex-col items-start justify-center">
@@ -63,7 +68,7 @@ export default function ProjectButton({ project, index, addPrefix = false, handl
             </span>
             <a
               href={project.link}
-              className="text-md mt-3 font-geistMono text-blue-400 hover:underline lg:text-2xl lg:ml-3"
+              className="text-md mt-3 font-geistMono text-blue-400 hover:underline lg:ml-3 lg:text-2xl"
             >
               Source
             </a>

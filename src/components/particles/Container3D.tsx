@@ -1,6 +1,11 @@
 import { memo, useMemo, useRef } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
-import { AdaptiveDpr, AsciiRenderer, OrbitControls, OrbitControlsProps } from "@react-three/drei";
+import {
+  AdaptiveDpr,
+  AsciiRenderer,
+  OrbitControls,
+  OrbitControlsProps,
+} from "@react-three/drei";
 import RotatingGeom from "../atoms/RotatingGeom";
 import * as THREE from "three";
 import { useInView } from "framer-motion";
@@ -62,11 +67,9 @@ export default function Container3D({ children, ...props }: Props) {
   return (
     <div
       ref={ref}
-      className="mx-1 h-full min-h-[36rem] w-full flex-grow relative invert"
+      className="relative mx-1 h-full min-h-[36rem] w-full flex-grow invert"
     >
-      <div className="fixed h-full w-full top-0 left-0 z-40 lg:hidden">
-
-      </div>
+      <div className="fixed left-0 top-0 z-40 h-full w-full lg:hidden"></div>
       <Canvas performance={performance} frameloop="demand">
         <AdaptiveDpr pixelated />
         <Controls />

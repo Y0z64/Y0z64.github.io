@@ -1,22 +1,30 @@
 import { motion } from "framer-motion";
-import { FaAmazon, FaAndroid, FaGithub, FaLinux, FaPython, FaReact, FaRedhat } from "react-icons/fa";
+import {
+  FaAmazon,
+  FaAndroid,
+  FaGithub,
+  FaLinux,
+  FaPython,
+  FaReact,
+  FaRedhat,
+} from "react-icons/fa";
 import { BiLogoTypescript, BiLogoJavascript } from "react-icons/bi";
 import { SiAstro, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { cloneElement } from "react";
 
 const icons = [
-  <FaReact className="size-32"/>,
+  <FaReact className="size-32" />,
   <BiLogoTypescript />,
   <BiLogoJavascript />,
   <SiTailwindcss />,
-  <SiNextdotjs/>,
+  <SiNextdotjs />,
   <FaPython />,
   <SiAstro />,
-  <FaGithub/>,
-  <FaAndroid/>,
-  <FaLinux/>,
-  <FaRedhat/>,
-  <FaAmazon/>,
+  <FaGithub />,
+  <FaAndroid />,
+  <FaLinux />,
+  <FaRedhat />,
+  <FaAmazon />,
 ];
 
 export default function SliderDesign2() {
