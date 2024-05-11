@@ -43,7 +43,7 @@ export default function Projects() {
       </div>
       {projects.length <= 3 && (
         <div className="flex h-fit w-full items-center justify-center font-geistMono text-lg tracking-wide text-white mt-3">
-          More comming soon...
+          More coming soon...
         </div>
       )}
     </div>
