@@ -23,6 +23,9 @@
 
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  color: #213547;
+  background-color: #1e1e1e;
 }
 
 #canvas {
@@ -37,34 +40,6 @@ body {
   min-height: 100vh;
 }
 
-.dark-theme {
-  background-color: white;
-  color: var(--bg-dark-primary);
-}
-
-.light-theme {
-  background-color: var(--bg-dark-primary);
-  color: white;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    mix-blend-mode: difference;
-  }
-
-  @-moz-document url-prefix() {
-    :root {
-      background-color: #ffffff;
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #213547;
-    background-color: var(--bg-dark-primary);
-  }
-}
 
 /* Fonts */
 @layer base {

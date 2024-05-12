@@ -41,7 +41,7 @@ export default function ProjectButton({
         className={clsx(
           "w-full pl-2 text-left font-geistMono text-[2.7rem] transition-colors duration-300",
           {
-            "bg-black text-gray-100 hover:bg-white hover:text-[#1e1e1e] dark:bg-[#1e1e1e]":
+            "text-gray-100 hover:bg-white hover:text-[#1e1e1e] bg-[#1e1e1e]":
               !show,
             "bg-white text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-gray-100":
               show,
