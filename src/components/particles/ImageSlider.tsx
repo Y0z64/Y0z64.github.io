@@ -84,7 +84,7 @@ export default function ImageSlider({ images }: Props) {
         return (
           <motion.li
             key={idx}
-            className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:min-h-[24.5rem] lg:min-h-[34rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
+            className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:min-h-[22.5rem] md:max-h-[26rem] lg:min-h-[34rem] lg:max-h-[40rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
           >
             <img
               src={image}
