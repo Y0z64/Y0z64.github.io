@@ -27,21 +27,13 @@ export default function Torusknot({
     }
   });
 
-  const scaleNum = () => {
-    const limits = { min: 5, max: 10 };
-    const offset = 2.3;
-    return (
-      ((viewport.width - limits.min) / (limits.max - limits.min)) * 1.2 + offset
-    );
-  };
-
   const Mat = useMemo(() => {
     return () => <meshStandardMaterial color="red" />;
   }, []);
 
   return (
     <mesh
-      scale={Math.min(viewport.width, viewport.height) / scaleNum()}
+      scale={Math.min(viewport.width, viewport.height) / 2.7}
       {...props}
       ref={ref}
     >
