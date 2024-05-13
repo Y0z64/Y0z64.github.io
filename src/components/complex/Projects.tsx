@@ -10,6 +10,10 @@ const projects: Project[] = [
     link: "https://github.com/Gorchon/BrainyPad",
     images: [
       "./images/brainypad/brainypad-0.png",
+      "./images/brainypad/brainypad-0.png",
+      "./images/brainypad/brainypad-0.png",
+      "./images/brainypad/brainypad-0.png",
+      "./images/brainypad/brainypad-0.png",
     ],
     addPrefix: true,
   },
