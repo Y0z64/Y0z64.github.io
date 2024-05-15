@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+### Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio! Crafted with the dynamic trio of Vite, React, and TypeScript, sprinkled with love and attention to detail.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Tailwind CSS**: For sleek and responsive styling.
+- **Three.js/Fiber and Drei**: Harnessing the power of 3D graphics for immersive experiences.
+- **Framer Motion**: Adding smooth animations and transitions to captivate visitors.
 
-## Expanding the ESLint configuration
+## Installation Guide
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Set up the project locally:
+1. Clone the Repository
 
-- Configure the top-level `parserOptions` property like this:
+```bash
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+git clone https://github.com/Y0z64/Y0z64.github.io.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the Repository Directory
+
+```bash
+
+cd Y0z64.github.io
+```
+3. Install Dependencies
+
+```bash
+
+yarn install
+```
+4. Run Locally
+
+```bash
+
+yarn vite
+```
+Feel free to use the code the code in this repo for anything but commercial use.
