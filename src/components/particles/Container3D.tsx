@@ -1,4 +1,4 @@
-import { memo, useMemo, useRef } from "react";
+import { memo, Suspense, useMemo, useRef } from "react";
 import { Canvas, ThreeElements } from "@react-three/fiber";
 import {
   AdaptiveDpr,
@@ -71,16 +71,18 @@ export default function Container3D({ children, ...props }: Props) {
     >
       <div className="fixed left-0 top-0 z-40 h-full w-full lg:hidden"></div>
       <Canvas performance={performance} frameloop="demand">
-        <AdaptiveDpr pixelated />
-        <Controls />
-        <color attach="background" args={["black"]} />
-        <AsciiShader />
-        <AmbientLight />
-        <SpotLight />
-        <PointLight />
-        <MemoizedRotatingGeom isInView={isInView} {...props}>
-          {children}
-        </MemoizedRotatingGeom>
+        <Suspense fallback={<div className="text-white font-geistMono"> Loading...</div>}>
+          <AdaptiveDpr pixelated />
+          <Controls />
+          <color attach="background" args={["black"]} />
+          <AsciiShader />
+          <AmbientLight />
+          <SpotLight />
+          <PointLight />
+          <MemoizedRotatingGeom isInView={isInView} {...props}>
+            {children}
+          </MemoizedRotatingGeom>
+        </Suspense>
       </Canvas>
     </div>
   );

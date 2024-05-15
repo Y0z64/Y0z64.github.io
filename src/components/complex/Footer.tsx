@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="lg:text-md flex h-full flex-col items-start justify-between text-left font-geistMono text-sm">
         <span>Contact</span>
         <a
-          className="text-xs text-gray-600 lg:text-sm"
+          className="text-xs text-gray-600 hover:text-black lg:text-sm"
           href="https://www.linkedin.com/in/yairprogrammer"
           target="_blank"
           rel="noopener noreferrer"
@@ -14,7 +14,7 @@ export default function Footer() {
           www.linkedin.com/in/yairprogrammer
         </a>
         <a
-          className="text-xs text-gray-600 lg:text-sm"
+          className="text-xs text-gray-600 hover:text-black lg:text-sm"
           href="mailto:yairprogrammer@gmail.com?subject=Let's%20Connect!"
         >
           yairprogrammer@gmail.com
