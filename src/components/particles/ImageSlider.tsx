@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
+import Image from "../atoms/Image"
 
 type Props = {
   images: string[];
@@ -82,16 +83,7 @@ export default function ImageSlider({ images }: Props) {
       {images.map((image, idx) => {
         const imageName = image.split("/").pop()?.split(".").shift();
         return (
-          <motion.li
-            key={idx}
-            className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:min-h-[22.5rem] md:max-h-[26rem] lg:min-h-[34rem] lg:max-h-[40rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
-          >
-            <img
-              src={image}
-              alt={imageName}
-              className="aspect-video h-min w-full"
-            />
-          </motion.li>
+          <Image idx={idx} image={image} alt={imageName}/> 
         );
       })}
     </motion.ul>
