@@ -13,6 +13,7 @@ export default {
     fontFamily: {
       geist: ["Geist", "sans-serif"],
       geistMono: ["GeistMono", "sans-serif"],
+      inter: ["InterVariable", "sans-serif"]
     },
   },
   extend: {

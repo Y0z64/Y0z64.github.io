@@ -5,7 +5,7 @@ import { MeshNormalMaterial } from "three";
 export default function AboutMe() {
   return (
     <div
-      id="whoami"
+      id="aboutme"
       className="flex h-fit max-h-screen min-h-[36.25rem] w-screen   items-center justify-center lg:h-screen"
     >
       {/* 3d object */}
@@ -27,22 +27,23 @@ export default function AboutMe() {
           <h1 className="my-5 w-full text-center font-geistMono text-[3rem] tracking-tighter md:text-[4rem] lg:text-[5rem] xl:my-8 xl:text-[6rem]">
             Who am I?
           </h1>
-          <span className="prose block text-left font-geistMono md:text-[1.3rem]  lg:px-14 lg:text-[1.4rem] xl:text-[1.6rem] xl:leading-relaxed">
-            My name is <b>Yair Salvador</b> and I'm a CS student and full-stack
-            developer. I have interest in multiple fields and have experience
-            working with teams of all sizes, but mostly I do what I find fun at
-            any given moment, from game moding to building complex project ideas
-            into reality.
+          <span className="font-inter prose block text-left tracking-tighter md:text-[1.4rem] lg:px-14 lg:text-[1.6rem] xl:text-[1.8rem] xl:leading-relaxed">
+            My name is <b>Yair Salvador</b> and I'm a{" "}
+            <b>full-stack developer</b> and CS student. I have interest in
+            multiple fields and{" "}
+            <b>have experience working with teams of all sizes</b>, but mostly I
+            do what I find fun at any given moment, from game moding to building
+            complex project ideas into reality.
             <br />
             <br />
-            While my professional focus is in web development, I usually delve
-            into new territories like AI development and implementation. I
-            possess a natural talent for rapid learning and a drive to tackle
-            challenging problems head-on.
+            While my professional focus is in <b>web development</b>, I usually
+            delve into new territories like AI development and implementation. I
+            possess a natural <b>talent for rapid learning</b> and a drive to
+            <b> tackle challenging problems head-on</b>.
             <br />
             <br />
-            If you need someone that learns extremelly fast and does not back
-            down form hard problems, I'm your guy.
+            If you need someone that <b>learns extremelly fast</b> and does not
+            back down form hard problems, I'm your guy.
           </span>
         </div>
       </div>
