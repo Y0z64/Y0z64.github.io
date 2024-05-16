@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ConnectButton() {
   const icon = {
@@ -9,9 +9,11 @@ export default function ConnectButton() {
       pathLength: 1,
     },
   };
+
+  const reducedMotion = useReducedMotion();
   return (
     <motion.a
-      whileHover={{ scale: 1.1 }}
+      whileHover={!reducedMotion ? { scale: 1.1 } : {scale: 1.01}}
       href="mailto:yairprogrammer@gmail.com?subject=Let's%20Connect!"
       className="mb-4 flex w-min items-center justify-center"
     >
@@ -33,16 +35,14 @@ export default function ConnectButton() {
         <motion.path
           d="M7 7h10v10"
           variants={icon}
-          initial="hidden"
+          initial={!reducedMotion ? "hidden" : "visible"}
           whileInView="visible"
-          viewport={{ once: true }}
         />
         <motion.path
           d="M7 17 17 7"
           variants={icon}
-          initial="hidden"
+          initial={!reducedMotion ? "hidden" : "visible"}
           whileInView="visible"
-          viewport={{ once: true }}
         />
       </svg>
     </motion.a>
