@@ -2,6 +2,7 @@ import SocialButton from "../atoms/SocialButton";
 import SocialBar from "../particles/SocialBar";
 import ConnectButton from "../atoms/ConnectButton";
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
+import { GrDocumentUser } from "react-icons/gr";
 
 export default function Contact() {
   return (
@@ -27,6 +28,13 @@ export default function Contact() {
           </SocialButton>
           <SocialButton href="https://twitter.com/y0z64_codes">
             <FaTwitterSquare
+              className="m-1 size-14 md:m-0 md:size-20"
+              stroke="black"
+              fill="black"
+            />
+          </SocialButton>
+          <SocialButton href="https://drive.google.com/file/d/1Ar8FVg1QwD-HCit-h2b3x_kkx0H2b6Kn/view?usp=drive_link">
+            <GrDocumentUser
               className="m-1 size-14 md:m-0 md:size-20"
               stroke="black"
               fill="black"
