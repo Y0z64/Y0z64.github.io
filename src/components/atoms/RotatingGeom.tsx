@@ -1,4 +1,5 @@
 import { ThreeElements, useFrame, useThree } from "@react-three/fiber";
+import { useReducedMotion } from "framer-motion";
 import { useMemo, useRef } from "react";
 import { Mesh } from "three";
 
@@ -14,12 +15,14 @@ export default function Torusknot({
   isInView,
   ...props
 }: TorusknotProps) {
+  const reducedMotion = useReducedMotion();
+
   const ref = useRef<Mesh>(null!);
   const viewport = useThree((state) => state.viewport);
   const { invalidate } = useThree();
 
   useFrame((_state, delta) => {
-    if (isInView) {
+    if (isInView && !reducedMotion) {
       ref.current.rotation.x = ref.current.rotation.y += delta / 2;
       invalidate();
     } else {
