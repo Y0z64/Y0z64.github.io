@@ -9,7 +9,9 @@ const projects: Project[] = [
       "Welcome to BrainyPad, where your notes come to life! This innovative app leverages cutting-edge artificial intelligence to transform your study notes into interactive quizzes, helping reinforce your learning and ensuring you grasp the most important concepts. Whether you're a student, a lifelong learner, or a professional brushing up on new material, QuizNote is designed to enhance your learning experience by making study time both efficient and effective.",
     link: "https://github.com/Gorchon/BrainyPad",
     images: [
-      "./images/brainypad/brainypad-0.png",
+      "./images/brainypad/0.png",
+      "./images/brainypad/1.png",
+      "./images/brainypad/2.png",
     ],
     addPrefix: true,
   },
