@@ -22,7 +22,7 @@ export default function ImageSlider({ images }: Props) {
     setAnimationComplete(false);
 
     const xVal = e.pageX - ref.current.offsetLeft;
-    const walk = (xVal - startX) * 2.7; //scroll-fast
+    const walk = (xVal - startX) * 4; //scroll-fast
 
     const controls = animate(x, scrollLeft - walk, {
       type: "tween",

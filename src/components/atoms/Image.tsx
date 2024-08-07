@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { PropsWithChildren, useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "./Dialog";
+import { PropsWithChildren, useRef, useState } from "react";
+import { Dialog, DialogContent} from "./Dialog";
 
 interface Props extends PropsWithChildren {
   idx: number;
@@ -9,33 +9,58 @@ interface Props extends PropsWithChildren {
 }
 
 export default function Image({ idx, image, alt }: Props) {
-  const [show, setShow] = useState(false);
+  const [dialog, setDialog] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const startPos = useRef({ x: 0, y: 0 });
 
-  const handleClick = () => {
-    setShow(!show);
+  const handleMouseDown = (e: React.PointerEvent<HTMLLIElement>) => {
+    startPos.current = { x: e.clientX, y: e.clientY };
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.PointerEvent<HTMLLIElement>) => {
+    const dx = e.clientX - startPos.current.x;
+    const dy = e.clientY - startPos.current.y;
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleMouseUp = (_e: React.PointerEvent<HTMLLIElement>) => {
+    if (!isDragging) {
+      setDialog(true);
+    }
   };
 
   return (
-    <Dialog>
-      <DialogTrigger>
-        <motion.li
-          key={idx}
-          className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:max-h-[26rem] md:min-h-[22.5rem] lg:max-h-[40rem] lg:min-h-[34rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
-        >
+    <>
+      <motion.li
+        key={idx}
+        className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:max-h-[26rem] md:min-h-[22.5rem] lg:max-h-[40rem] lg:min-h-[34rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
+        <img
+          src={image}
+          alt={alt}
+          className="pointer-events-none aspect-video h-min w-full"
+        />
+      </motion.li>
+      <Dialog
+        open={dialog}
+        onOpenChange={(o) => {
+          setDialog(o);
+        }}
+      >
+        <DialogContent className="w-1/2 h-1/2 justify-center items-center flex m-0 p-4">
           <img
             src={image}
             alt={alt}
-            className="pointer-events-none aspect-video h-min w-full"
-            onClick={() => handleClick()}
+            className="pointer-events-none aspect-video h-full"
           />
-          {show && (
-            <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen items-center justify-center bg-black bg-opacity-70"></div>
-          )}
-        </motion.li>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>Hello world</DialogHeader>
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
