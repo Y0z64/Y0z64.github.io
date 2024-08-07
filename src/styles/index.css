@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #1e1e1e;
+    --background: 0 0% 12%;
     --foreground: 213 31% 91%;
 
     --muted: 223 47% 11%;
@@ -22,10 +22,10 @@
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
 
-    --primary: #1e1e1e;
+    --primary: 0 0% 12%;
     --primary-foreground: 222.2 47.4% 1.2%;
 
-    --secondary: #0a0a0a;
+    --secondary: 0 0% 4%;
     --secondary-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
@@ -39,7 +39,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; 
   }
   body {
     @apply bg-background text-foreground;
