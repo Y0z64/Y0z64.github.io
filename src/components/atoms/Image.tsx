@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { PropsWithChildren, useRef, useState } from "react";
-import { Dialog, DialogContent} from "./Dialog";
+import { Dialog, DialogContent } from "./Dialog";
 
 interface Props extends PropsWithChildren {
   idx: number;
@@ -35,6 +35,7 @@ export default function Image({ idx, image, alt }: Props) {
   return (
     <>
       <motion.li
+        layoutId={`image-${idx}`}
         key={idx}
         className="rounded-xs mx-2 flex aspect-video h-full min-h-[15.5rem] w-fit items-center justify-center px-2 md:max-h-[26rem] md:min-h-[22.5rem] lg:max-h-[40rem] lg:min-h-[34rem] lg:rounded-md lg:first-of-type:ml-4 lg:last-of-type:mr-4 dark:invert-0"
         onMouseDown={handleMouseDown}
@@ -53,11 +54,12 @@ export default function Image({ idx, image, alt }: Props) {
           setDialog(o);
         }}
       >
-        <DialogContent className="w-1/2 h-1/2 justify-center items-center flex m-0 p-4">
-          <img
+        <DialogContent className="md:1/2 m-0 flex aspect-video max-h-screen w-11/12 items-center justify-center p-5 md:p-6">
+          <motion.img
+            layoutId={`image-${idx}`}
             src={image}
             alt={alt}
-            className="pointer-events-none aspect-video h-full"
+            className="pointer-events-none aspect-video h-full z-50"
           />
         </DialogContent>
       </Dialog>
