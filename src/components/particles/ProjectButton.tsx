@@ -6,6 +6,7 @@ import clsx from "clsx";
 export type Project = {
   title: string;
   description: string;
+  extras?: {text: string, link?: string}[];
   link?: string;
   images: string[];
   addPrefix?: boolean;
@@ -41,7 +42,7 @@ export default function ProjectButton({
         className={clsx(
           "w-full pl-2 text-left font-geistMono text-[2.7rem] transition-colors duration-300",
           {
-            "text-gray-100 hover:bg-white hover:text-[#1e1e1e] bg-[#1e1e1e]":
+            "bg-[#1e1e1e] text-gray-100 hover:bg-white hover:text-[#1e1e1e]":
               !show,
             "bg-white text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-gray-100":
               show,
@@ -66,9 +67,24 @@ export default function ProjectButton({
             <span className="text-md mt-1 w-full max-w-[1080px] pl-[0.125rem] text-left font-geistMono text-gray-100 lg:ml-3 lg:text-2xl">
               {project.description}
             </span>
+            {project.extras && (
+              <ul className="flex justify-start items-start mt-3 list-disc list-inside">
+                {project.extras.map((extra, idx) => (
+                  <li className="mt-1 lg:ml-3">
+                    <a
+                      key={idx}
+                      href={extra.link}
+                      className={`text-md font-geistMono ${extra.link ? "text-blue-400" : "text-gray-100"} hover:underline lg:text-2xl`}
+                    >
+                      {extra.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
             <a
               href={project.link}
-              className="text-md mt-3 font-geistMono text-blue-400 hover:underline lg:ml-3 lg:text-2xl"
+              className={`text-md mt-3 font-geistMono text-blue-400 hover:underline lg:ml-3 lg:text-2xl`}
             >
               Source
             </a>

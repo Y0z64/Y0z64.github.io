@@ -15,6 +15,24 @@ const projects: Project[] = [
     ],
     addPrefix: true,
   },
+  {
+    title: "ForestForecast",
+    description:
+      "ForestForecast tackles the global challenge of deforestation—caused by agriculture, logging, and urban expansion-by providing a plataform powered by AI that analyses satelital images in search for deforestation patterns. The plataform also provides a series of tools to help users understand the data, all in an elegant and innovative 3D interface.",
+    extras: [
+      {
+        text: "Made with the team FerretScript during the 2024 Guadalahacks Hackathon.",
+        link: "https://github.com/FerretScript",
+      },
+    ],
+    link: "https://github.com/FerretScript/ForestForecast ",
+    images: [
+      "./images/forestforecast/0.png",
+      "./images/forestforecast/1.png",
+      "./images/forestforecast/2.png",
+    ],
+    addPrefix: true,
+  },
 ];
 
 export default function Projects() {
