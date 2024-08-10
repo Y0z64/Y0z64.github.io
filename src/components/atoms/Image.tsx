@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { PropsWithChildren, useRef, useState } from "react";
 import { Dialog, DialogContent } from "./Dialog";
-
 interface Props extends PropsWithChildren {
   idx: number;
   image: string;
@@ -56,6 +55,7 @@ export default function Image({ idx, image, alt }: Props) {
       >
         <DialogContent className="md:1/2 m-0 flex aspect-video max-h-screen w-11/12 items-center justify-center p-5 md:p-6">
           <motion.img
+            loading="lazy"
             layoutId={`image-${idx}`}
             src={image}
             alt={alt}
