@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ImageSlider from "./ImageSlider";
+import Carrousel from "./Carrousel";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
@@ -8,7 +8,7 @@ export type Project = {
   description: string;
   extras?: {text: string, link?: string}[];
   link?: string;
-  images: string[];
+  sources: string[];
   addPrefix?: boolean;
 };
 
@@ -19,7 +19,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   addPrefix?: boolean;
 }
 
-export default function ProjectButton({
+export default function ProjectDisplay({
   project,
   index,
   addPrefix = false,
@@ -62,7 +62,7 @@ export default function ProjectButton({
           animate={{ opacity: 100 }}
           className="bg-primary mb-3 flex h-fit w-full flex-col items-center justify-start px-2 py-5 lg:mb-5"
         >
-          {project.images && <ImageSlider images={project.images} />}
+          {project.sources && <Carrousel sources={project.sources} />}
           <div className="flex h-full w-full flex-col items-start justify-center">
             <span className="text-md mt-1 w-full max-w-[1080px] pl-[0.125rem] text-left font-geistMono text-gray-100 lg:ml-3 lg:text-2xl">
               {project.description}

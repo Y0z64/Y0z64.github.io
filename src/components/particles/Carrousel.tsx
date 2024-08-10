@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
-import Image from "../atoms/Image"
+import Display from "../atoms/Display"
 
 type Props = {
-  images: string[];
+  sources: string[];
 };
 
-export default function ImageSlider({ images }: Props) {
+export default function Carrousel({ sources }: Props) {
   const ref = useRef<HTMLUListElement>(null);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -80,10 +80,10 @@ export default function ImageSlider({ images }: Props) {
       onScroll={handleScroll}
       className="flex h-fit w-full snap-x snap-mandatory list-none overflow-x-scroll pb-3 pr-1 lg:snap-none"
     >
-      {images.map((image, idx) => {
-        const imageName = image.split("/").pop()?.split(".").shift();
+      {sources.map((src, idx) => {
+        const imageName = src.split("/").pop()?.split(".").shift();
         return (
-          <Image idx={idx} image={image} alt={imageName}/> 
+          <Display idx={idx} src={src} alt={imageName}/> 
         );
       })}
     </motion.ul>
