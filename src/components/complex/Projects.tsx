@@ -34,7 +34,7 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Neuro Sense Art",
+    title: "NART",
     description:
       "Nart is a company dedicated to developing immersive and personalized artistic experiences, adapted to the needs of each client. We use advanced technologies and various datasets (EEG, biometric, environmental) to offer unique multisensory experiences in VR, lighting, video mapping, visual arts, AR, and 360-degree videos.",
     link: "https://github.com/Y0z64/nart-webapp",
