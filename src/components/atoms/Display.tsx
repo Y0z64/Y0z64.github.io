@@ -3,11 +3,21 @@ import { PropsWithChildren, useRef, useState } from "react";
 import { Dialog, DialogContent } from "./Dialog";
 interface Props extends PropsWithChildren {
   idx: number;
-  image: string;
+  src: string;
   alt: string | undefined;
 }
 
-export default function Image({ idx, image, alt }: Props) {
+const isVideo = (filename: string) => {
+  const videoExtensions = [".mp4", ".webm", ".ogg"];
+  return videoExtensions.some((ext) => filename.toLowerCase().endsWith(ext));
+};
+
+const isImage = (filename: string) => {
+  const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"];
+  return imageExtensions.some((ext) => filename.toLowerCase().endsWith(ext));
+};
+
+export default function Display({ idx, src, alt }: Props) {
   const [dialog, setDialog] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const startPos = useRef({ x: 0, y: 0 });
@@ -41,11 +51,22 @@ export default function Image({ idx, image, alt }: Props) {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
-        <img
-          src={image}
-          alt={alt}
-          className="pointer-events-none aspect-video h-min w-full"
-        />
+        {isImage(src) && (
+          <motion.img
+            loading="lazy"
+            layoutId={`image-${idx}`}
+            src={src}
+            alt={alt}
+            className="pointer-events-none z-50 aspect-video h-full"
+          />
+        )}
+        {isVideo(src) && (
+          <motion.video
+            layoutId={`video-${idx}`}
+            src={src}
+            className="pointer-events-none z-50 aspect-video h-full"
+          />
+        )}
       </motion.li>
       <Dialog
         open={dialog}
@@ -54,13 +75,22 @@ export default function Image({ idx, image, alt }: Props) {
         }}
       >
         <DialogContent className="md:1/2 m-0 flex aspect-video max-h-screen w-11/12 items-center justify-center p-5 md:p-6">
-          <motion.img
-            loading="lazy"
-            layoutId={`image-${idx}`}
-            src={image}
-            alt={alt}
-            className="pointer-events-none aspect-video h-full z-50"
-          />
+          {isImage(src) && (
+            <motion.img
+              loading="lazy"
+              layoutId={`image-${idx}`}
+              src={src}
+              alt={alt}
+              className="pointer-events-none z-50 aspect-video h-full"
+            />
+          )}
+          {isVideo(src) && (
+            <motion.video
+              layoutId={`video-${idx}`}
+              src={src}
+              className="pointer-events-none z-50 aspect-video h-full"
+            />
+          )}
         </DialogContent>
       </Dialog>
     </>
