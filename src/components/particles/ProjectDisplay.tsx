@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import Carrousel from "./Carrousel";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import { Link } from "lucide-react";
 
 export type Project = {
   title: string;
   description: string;
-  extras?: {text: string, link?: string}[];
+  extras?: { text: string; link?: string }[];
   link?: string;
   sources: string[];
   addPrefix?: boolean;
+  deploy?: string;
 };
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
@@ -71,12 +73,28 @@ export default function ProjectDisplay({
                 ))}
               </ul>
             )}
-            <a
-              href={project.link}
-              className={`text-md mt-3 font-geistMono text-blue-400 hover:underline lg:ml-3 lg:text-2xl`}
-            >
-              Source
-            </a>
+
+            <div className="flex h-fit w-fit items-center space-x-4 px-2">
+              {project.deploy && (
+                <>
+                  <a
+                    href={project.deploy}
+                    className={`text-md mt-3 flex h-fit items-center justify-center space-x-2 font-geistMono font-semibold text-blue-400 hover:underline lg:text-2xl`}
+                  >
+                    <span className="tracking-tight">Visit site</span>{" "}
+                    <Link className="h-6 w-6" />
+                  </a>
+                  <span className="mx-1 text-xl">~</span>
+                </>
+              )}
+              <a
+                href={project.link}
+                className={`text-md mt-3 flex h-fit items-center justify-center space-x-2 font-geistMono font-semibold text-blue-400 hover:underline lg:text-2xl`}
+              >
+                <span className="tracking-tight">Source code</span>{" "}
+                <Link className="h-6 w-6" />
+              </a>
+            </div>
           </div>
         </motion.div>
       )}

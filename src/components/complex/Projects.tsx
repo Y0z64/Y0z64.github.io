@@ -31,6 +31,7 @@ const projects: Project[] = [
         link: "https://github.com/FerretScript",
       },
     ],
+    deploy: "https://www.forestforecast.lat/",
   },
   {
     title: "NART",
@@ -45,6 +46,7 @@ const projects: Project[] = [
         link: "https://www.creativagdl.com/",
       },
     ],
+    deploy: "https://neurosenseart.com/",
   },
 ];
 
