@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProjectDisplay, { Project } from "../particles/ProjectDisplay";
 import clsx from "clsx";
 
@@ -50,18 +49,11 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = (val: boolean) => {
-    setIsOpen(val);
-  };
-
   return (
     <div
       id="projects"
       className={clsx(
         "flex h-fit min-h-dvh w-screen flex-col items-center justify-start pt-[4.6875rem] ",
-        { " ": !isOpen, "": isOpen },
       )}
     >
       <div className="flex h-fit w-full flex-col px-4">
@@ -69,7 +61,6 @@ export default function Projects() {
           <ProjectDisplay
             key={index}
             project={project}
-            handleOpen={handleOpen}
             index={index}
             addPrefix={project.addPrefix}
           />

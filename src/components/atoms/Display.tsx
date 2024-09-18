@@ -7,11 +7,6 @@ interface Props extends PropsWithChildren {
   alt: string | undefined;
 }
 
-const isVideo = (filename: string) => {
-  const videoExtensions = [".mp4", ".webm", ".ogg"];
-  return videoExtensions.some((ext) => filename.toLowerCase().endsWith(ext));
-};
-
 const isImage = (filename: string) => {
   const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"];
   return imageExtensions.some((ext) => filename.toLowerCase().endsWith(ext));
@@ -54,19 +49,12 @@ export default function Display({ idx, src, alt }: Props) {
         {isImage(src) && (
           <motion.img
             loading="lazy"
-            layoutId={`image-${idx}`}
             src={src}
             alt={alt}
             className="pointer-events-none z-50 aspect-video h-full"
           />
         )}
-        {isVideo(src) && (
-          <motion.video
-            layoutId={`video-${idx}`}
-            src={src}
-            className="pointer-events-none z-50 aspect-video h-full"
-          />
-        )}
+
       </motion.li>
       <Dialog
         open={dialog}
@@ -78,19 +66,12 @@ export default function Display({ idx, src, alt }: Props) {
           {isImage(src) && (
             <motion.img
               loading="lazy"
-              layoutId={`image-${idx}`}
               src={src}
               alt={alt}
               className="pointer-events-none z-50 aspect-video h-full"
             />
           )}
-          {isVideo(src) && (
-            <motion.video
-              layoutId={`video-${idx}`}
-              src={src}
-              className="pointer-events-none z-50 aspect-video h-full"
-            />
-          )}
+
         </DialogContent>
       </Dialog>
     </>

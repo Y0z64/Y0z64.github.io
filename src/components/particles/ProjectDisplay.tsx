@@ -14,7 +14,6 @@ export type Project = {
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
   project: Project;
-  handleOpen: (val: boolean) => void;
   index: number;
   addPrefix?: boolean;
 }
@@ -23,18 +22,8 @@ export default function ProjectDisplay({
   project,
   index,
   addPrefix = false,
-  handleOpen,
 }: Props) {
   const [show, setShow] = useState(false);
-
-  const handleClick = () => {
-    if (show) {
-      handleOpen(false);
-    } else {
-      handleOpen(true);
-    }
-    setShow(!show);
-  };
 
   return (
     <div className="h-fit w-full items-center justify-center">
@@ -50,7 +39,7 @@ export default function ProjectDisplay({
         )}
         whileHover={{ paddingLeft: "1.7rem" }}
         animate={show ? { paddingLeft: "1.7rem" } : { paddingLeft: "0.5rem" }}
-        onClick={() => handleClick()}
+        onClick={() => setShow(!show)}
       >
         {addPrefix ? `PROJECT ${index + 1} - ${project.title}` : project.title}
       </motion.button>
@@ -60,7 +49,7 @@ export default function ProjectDisplay({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 100 }}
-          className="bg-primary mb-3 flex h-fit w-full flex-col items-center justify-start px-2 py-5 lg:mb-5"
+          className="mb-3 flex h-fit w-full flex-col items-center justify-start bg-primary px-2 py-5 lg:mb-5"
         >
           {project.sources && <Carrousel sources={project.sources} />}
           <div className="flex h-full w-full flex-col items-start justify-center">
@@ -68,7 +57,7 @@ export default function ProjectDisplay({
               {project.description}
             </span>
             {project.extras && (
-              <ul className="flex justify-start items-start mt-3 list-disc list-inside">
+              <ul className="mt-3 flex list-inside list-disc items-start justify-start">
                 {project.extras.map((extra, idx) => (
                   <li className="mt-1 lg:ml-3">
                     <a
